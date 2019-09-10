@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Movies = sequelize.define("movies", {
-    movie_name: {
+    movieName: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -16,13 +16,13 @@ module.exports = function(sequelize, DataTypes) {
     },
     year: {
       type: DataTypes.INT,
-      allowNull: false, 
-    }, 
+      allowNull: false 
+    },
     seen: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    user_ranking: DataTypes.FLOAT,
+    userRanking: DataTypes.FLOAT,
     userID: DataTypes.STRING
   });
   return Movies;
