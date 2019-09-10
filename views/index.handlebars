@@ -18,25 +18,25 @@
       <label id="form-check-input" for="searchRadio2">Seen</label> 
     </div>
 
-    {{#each burger}}
-      {{#unless this.devoured}}
+    {{#each movie}}
+      {{#unless this.watched}}
         <form class="form-inline" action="/{{this.id}}" method="POST">
-          <label id="ready-items">{{this.burger_name}}</label>
-          <input type="hidden" name="devoured" value={{this.devoured}}>&nbsp
-          <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
-          <i class="fas fa-hamburger"></i> Devour!</button>
+          <label id="movie-item">{{this.movie_name}}</label>
+          <input type="hidden" name="movie" value={{this.watched}}>&nbsp
+          {{!-- <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
+          <i class="fas fa-hamburger"></i> Devour!</button> --}}
         </form>
       {{/unless}}
     {{/each}}
   </div>
     
   <div class="col-md-4 text-center">
-    <h2 id="ready-to-eat">Burger Heaven</h2>
-    {{#each burger}}
-      {{#if this.devoured}}
+    {{!-- <h2 id="ready-to-eat">Burger Heaven</h2> --}}
+    {{#each movie}}
+      {{#if this.watched}}
         <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-          <label id="ready-items">{{this.burger_name}}</label>
-          <input type="hidden" name="devoured" value={{this.devoured}}>
+          <label id="watched-items">{{this.movie_name}}</label>
+          <input type="hidden" name="watched" value={{this.watched}}>
         </form>
       {{/if}}
     {{/each}}
@@ -50,22 +50,22 @@
   <div class="col-md-6 text-center" id="add-form">
     <form action="/add" method="POST">
   <div class="form-group">
-    <label for="new-burger" class="control-label">Create A New Burger</label>
-    <input class="form-control" type="text" id="new-burger" name="name" value="" placeholder="Add New Burger Name">
-    <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Burger</button>
+    <label for="new-movie" class="control-label">Add to your watch list!</label>
+    <input class="form-control" type="text" id="new-movie" name="name" value="" placeholder="Add New Movie">
+    <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Movie</button>
   </div>
   </form>
     {{#if alert}}
-    <p style="color: red">{{alert}}</p>
+    <p style="color: blue;">{{alert}}</p>
     {{/if}}
     <div>
-        <h3 id="total">Total Burgers Devoured: {{total}}</h3>
+        {{!-- <h3 id="total">Total Burgers Devoured: {{total}}</h3> --}}
     </div>
   </div>
   <div class="col-md-3"></div>
 </div>
 
-<div id="home">
+{{!-- <div id="home">
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
@@ -94,7 +94,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
