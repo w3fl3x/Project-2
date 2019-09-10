@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "root",
+    "username": "nodeuser",
     "password": null,
     "database": "exampledb",
     "host": "localhost",
