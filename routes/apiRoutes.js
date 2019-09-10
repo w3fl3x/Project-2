@@ -11,13 +11,11 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/examples", function(req, res) {
     db.Movies.create({
-
-      movie_name: req.body.movie_name,
+      movieName: req.body.movie_name,
       genre: req.body.genre,
       year: req.body.year,
-      user_ranking: req.body.user_ranking,
+      userRanking: req.body.user_ranking,
       userID: req.body.userID
-
     }).then(function(dbMovies) {
       res.json(dbMovies);
     });
