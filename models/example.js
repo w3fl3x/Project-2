@@ -1,7 +1,29 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+  var Movies = sequelize.define("movies", {
+    movieName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    genre: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 255]
+      }
+    },
+    year: {
+      type: DataTypes.INT,
+      allowNull: false
+    },
+    seen: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    userRanking: DataTypes.FLOAT,
+    userID: DataTypes.STRING
   });
-  return Example;
+  return Movies;
 };
