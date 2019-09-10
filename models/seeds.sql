@@ -1,0 +1,10 @@
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Shawshank Redemption', 'Drama', 2014);
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Godfather', 'Drama, Action', 1972);
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Godfather Pt.2', 'Drama, Action', 1974);
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Dark Knight', 'Drama, Action, Crime', 2008);
+INSERT INTO movies (movie_name, genre, year) VALUES ('12 Angry Men', 'Drama', 1957);
+INSERT INTO movies (movie_name, genre, year) VALUES ("Schindler's List", 'Drama', 1993);
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Lord of the Rings: The Return of the King', 'Drama, Adventure, Fantasy', 2003);
+INSERT INTO movies (movie_name, genre, year) VALUES ('Pulp Fiction', 'Drama, Crime', 1994);
+INSERT INTO movies (movie_name, genre, year) VALUES ('The Good, The Bad, and The Ugly', 'Western', 1966);
+INSERT INTO movies (movie_name, genre, year) VALUES ('Fight Club', 'Drama', 1999);
