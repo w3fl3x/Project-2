@@ -14,7 +14,7 @@ module.exports = function(app) {
       .findOne({ where: { id: req.params.id } })
       .then(function(dbMovies) {
         res.render("example", {
-          movies: dbExample
+          movies: dbMovies
         });
       });
   });
