@@ -10,56 +10,56 @@
 
   <div class="col-md-4 text-center">
     <div class="form-check form-check-inline">
-      <input id="searchRadio1" type="radio"  class="form-check-input" name="search" value="1" checked> 
-      <label class="form-check-input" for="searchRadio1">Top Movies</label> 
+      <input id="searchRadio1" type="radio" class="form-check-input" name="search" value="1" checked>
+      <label class="form-check-input" for="searchRadio1">Top Movies</label>
     </div>
     <div class="form-check form-check-inline">
-      <input id="searchRadio2" type="radio" class="form-check-input" name="search" value="0" > 
-      <label id="form-check-input" for="searchRadio2">Seen</label> 
+      <input id="searchRadio2" type="radio" class="form-check-input" name="search" value="0">
+      <label id="form-check-input" for="searchRadio2">Seen</label>
     </div>
 
     {{#each movie}}
-      {{#unless this.watched}}
-        <form class="form-inline" action="/{{this.id}}" method="POST">
-          <label id="movie-item">{{this.movie_name}}</label>
-          <input type="hidden" name="movie" value={{this.watched}}>&nbsp
-          {{!-- <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
+    {{#unless this.seen}}
+    <form class="form-inline" action="/{{this.id}}" method="POST">
+      <label id="movie-item">{{this.movie_name}}</label>
+      <input type="hidden" name="movie" value={{this.watched}}>&nbsp
+      {{!-- <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
           <i class="fas fa-hamburger"></i> Devour!</button> --}}
-        </form>
-      {{/unless}}
+    </form>
+    {{/unless}}
     {{/each}}
   </div>
-    
+
   <div class="col-md-4 text-center">
     {{!-- <h2 id="ready-to-eat">Burger Heaven</h2> --}}
     {{#each movie}}
-      {{#if this.watched}}
-        <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-          <label id="watched-items">{{this.movie_name}}</label>
-          <input type="hidden" name="watched" value={{this.watched}}>
-        </form>
-      {{/if}}
+    {{#if this.watched}}
+    <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
+      <label id="watched-items">{{this.movie_name}}</label>
+      <input type="hidden" name="watched" value={{this.watched}}>
+    </form>
+    {{/if}}
     {{/each}}
   </div>
 </div>
 
-  <div class="col-md-2"></div>
+<div class="col-md-2"></div>
 
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6 text-center" id="add-form">
     <form action="/add" method="POST">
-  <div class="form-group">
-    <label for="new-movie" class="control-label">Add to your watch list!</label>
-    <input class="form-control" type="text" id="new-movie" name="name" value="" placeholder="Add New Movie">
-    <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Movie</button>
-  </div>
-  </form>
+      <div class="form-group">
+        <label for="new-movie" class="control-label">Add to your watch list!</label>
+        <input class="form-control" type="text" id="new-movie" name="name" value="" placeholder="Add New Movie">
+        <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Movie</button>
+      </div>
+    </form>
     {{#if alert}}
     <p style="color: blue;">{{alert}}</p>
     {{/if}}
     <div>
-        {{!-- <h3 id="total">Total Burgers Devoured: {{total}}</h3> --}}
+      {{!-- <h3 id="total">Total Burgers Devoured: {{total}}</h3> --}}
     </div>
   </div>
   <div class="col-md-3"></div>
