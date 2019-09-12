@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     year: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     seen: {
