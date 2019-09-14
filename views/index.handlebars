@@ -23,8 +23,8 @@
     <form class="form-inline" action="/{{this.id}}" method="POST">
       <label id="movie-item">{{this.movie_name}}</label>
       <input type="hidden" name="movie" value={{this.watched}}>&nbsp
-      {{!-- <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
-          <i class="fas fa-hamburger"></i> Devour!</button> --}}
+      <button type="submit" class="btn btn-sm btn-danger" id="seen-btn">
+          <i class="fas fa-hamburger"></i> Seen!</button>
     </form>
     {{/unless}}
     {{/each}}
@@ -51,16 +51,15 @@
     <form action="/add" method="POST">
       <div class="form-group">
         <label for="new-movie" class="control-label">Add to your watch list!</label>
-        <input class="form-control" type="text" id="new-movie" name="name" value="" placeholder="Add New Movie">
+        <input class="form-control" type="text" id="title" name="name" value="" placeholder="Movie Name">
+        <input class="form-control" type="text" id="genre" name="genre" value="" placeholder="Genre">
+        <input class="form-control" type="text" id="year" name="year" value="" placeholder="Year">
         <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Movie</button>
       </div>
     </form>
     {{#if alert}}
     <p style="color: blue;">{{alert}}</p>
     {{/if}}
-    <div>
-      {{!-- <h3 id="total">Total Burgers Devoured: {{total}}</h3> --}}
-    </div>
   </div>
   <div class="col-md-3"></div>
 </div>
