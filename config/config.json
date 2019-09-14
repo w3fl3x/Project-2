@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "nodeuser",
-    "password": "",
+    "password": "root",
     "database": "SceneIT_db",
     "host": "localhost",
     "dialect": "mysql"
