@@ -23,8 +23,8 @@
     <form class="form-inline" action="/{{this.id}}" method="POST">
       <label id="movie-item">{{this.movie_name}}</label>
       <input type="hidden" name="movie" value={{this.watched}}>&nbsp
-      {{!-- <button type="submit" class="btn btn-sm btn-danger" id="eat-btn">
-          <i class="fas fa-hamburger"></i> Devour!</button> --}}
+      <button type="submit" class="btn btn-sm btn-danger" id="seen-btn">
+        <i class="fas fa-hamburger"></i> Seen it!</button>
     </form>
     {{/unless}}
     {{/each}}
