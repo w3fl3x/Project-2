@@ -22,7 +22,7 @@ module.exports = function(app) {
   });
 
   // Update an example
-  app.post("/api/examples", function(req, res) {
+  app.put("/api/examples", function(req, res) {
     db.Movies.update(
       {
         seen: true
