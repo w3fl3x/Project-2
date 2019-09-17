@@ -1,7 +1,6 @@
 // Get references to page elements
 // var $seenBtn = $("#seen-btn");
 
-
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveMovie: function(Movies) {
@@ -33,39 +32,38 @@ var API = {
   }
 };
 
-
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-  event.preventDefault();
+// var handleFormSubmit = function(event) {
+//   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+//   var example = {
+//     text: $exampleText.val().trim(),
+//     description: $exampleDescription.val().trim()
+//   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+//   if (!(example.text && example.description)) {
+//     alert("You must enter an example text and description!");
+//     return;
+//   }
 
-  API.saveMovie(example).then(function() {
-    refreshExamples();
-  });
+//   API.saveMovie(example).then(function() {
+//     refreshExamples();
+//   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
+//   $exampleText.val("");
+//   $exampleDescription.val("");
+// };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var updateBtnClick = function() {
-  var idToUpdate = $(this).attr("value")
+  var idToUpdate = $(this).attr("value");
 
   console.log(idToUpdate);
 
   API.updateMovie(idToUpdate).then(function() {
-    window.location.href = "/"
+    window.location.href = "/";
   });
 };
 
