@@ -18,16 +18,18 @@
       <label id="form-check-input" for="searchRadio2">Seen</label>
     </div>
 
+    <ol>
     {{#each movie}}
     {{#unless this.seen}}
-    <form class="form-inline" action="/{{this.id}}" method="POST">
-      <label id="movie-item">{{this.movie_name}}</label>
-      <input type="hidden" name="movie" value={{this.watched}}>
-      <button type="submit" class="btn btn-sm btn-link" id="seen-btn">
-          <i class="fas fa-film"></i></button>
-    </form>
+    <li>
+      <label>{{this.movie_name}}</label>
+      <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
+          <i class="fas fa-film"></i>
+      </button>
+    </li>
     {{/unless}}
     {{/each}}
+    </ol>
   </div>
 
   <div class="col-md-7 text-center">
