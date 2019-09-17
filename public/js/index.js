@@ -1,16 +1,19 @@
 // Get references to page elements
-// var $seenBtn = $("#seen-btn");
+var movie_name = $("#title");
+var genre = $("#genre");
+var year = $("#year");
+var addBtn = $("#addBtn");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveMovie: function(Movies) {
+  saveMovie: function(movie) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "/api/movies",
-      data: JSON.stringify(Movies)
+      data: JSON.stringify(movie)
     });
   },
   getMovie: function() {
@@ -34,26 +37,28 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-// var handleFormSubmit = function(event) {
-//   event.preventDefault();
+var handleFormSubmit = function(event) {
+  event.preventDefault();
 
-//   var example = {
-//     text: $exampleText.val().trim(),
-//     description: $exampleDescription.val().trim()
-//   };
+  var movie = {
+    movie_name: movie_name.val().trim(),
+    genre: genre.val().trim(),
+    year: year.val().trim()
+  };
+  console.log(movie);
+  
+  if ((!movie_name) || (!genre) || (!year)) {
+    alert("You forgot to enter one of the following fields: title, genre or year!");
+  } else {
+    API.saveMovie(movie).then(function() {
+      window.location.href = "/";
+    });
+  };
 
-//   if (!(example.text && example.description)) {
-//     alert("You must enter an example text and description!");
-//     return;
-//   }
-
-//   API.saveMovie(example).then(function() {
-//     refreshExamples();
-//   });
-
-//   $exampleText.val("");
-//   $exampleDescription.val("");
-// };
+  movie_name.val("");
+  genre.val("");
+  year.val("");
+};
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
@@ -68,4 +73,5 @@ var updateBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
+addBtn.on("click", handleFormSubmit);
 $(document).on("click", "#seen-btn", updateBtnClick);
