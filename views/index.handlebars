@@ -24,7 +24,10 @@
     <li>
       <label>{{this.movie_name}}</label>
       <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
-          <i class="fas fa-film"></i>
+        <i class="fas fa-film"></i>
+      </button>
+      <button type="submit" class="btn btn-sm btn-link" id="delete-btn">
+        <i class="far fa-trash-alt"></i>
       </button>
     </li>
     {{/unless}}
@@ -39,6 +42,9 @@
     <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
       <label id="watched-items">{{this.movie_name}}</label>
       <input type="hidden" name="watched" value={{this.watched}}>
+      <button type="submit" class="btn btn-sm btn-link" id="delete-btn">
+        <i class="far fa-trash-alt"></i>
+      </button>
     </form>
     {{/if}}
     {{/each}}
@@ -56,7 +62,7 @@
         <input class="form-control" type="text" id="title" name="name" value="" placeholder="Movie Name">
         <input class="form-control" type="text" id="genre" name="genre" value="" placeholder="Genre">
         <input class="form-control" type="text" id="year" name="year" value="" placeholder="Year">
-        <button type="submit" class="btn btn-success btn-block" id="add-btn">Add Movie</button>
+        <button type="submit" class="btn btn-success btn-block" id="addBtn">Add Movie</button>
       </div>
     </form>
     {{#if alert}}

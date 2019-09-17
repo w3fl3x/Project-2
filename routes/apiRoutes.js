@@ -10,6 +10,8 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/movies", function(req, res) {
+    console.log("add new movies test!!!!!!!");
+    console.log(req.body);
     db.movies
       .create({
         movie_name: req.body.movie_name,
