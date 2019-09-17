@@ -2,16 +2,16 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Movies.findAll({}).then(function(dbMovies) {
+  app.get("/api/movies", function(req, res) {
+    db.movies.findAll({}).then(function(dbMovies) {
       res.json(dbMovies);
     });
   });
 
   // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Movies.create({
-      movieName: req.body.movie_name,
+  app.post("/api/movies", function(req, res) {
+    db.movies.create({
+      movie_name: req.body.movie_name,
       genre: req.body.genre,
       year: req.body.year,
       userRanking: req.body.user_ranking,
@@ -22,15 +22,16 @@ module.exports = function(app) {
   });
 
   // Update an example
-  app.put("/api/examples", function(req, res) {
-    db.Movies.update(
+  app.put("/api/movies", function(req, res) {
+    console.log('TEST TESTT');
+    console.log(req.body);
+    db.movies.update(
       {
         seen: true
-      },
-      {
+      }, {
         where: {
-          id: req.body.id
-        }
+            id: req.body.id
+          }
       }
     ).then(function(dbMovies) {
       res.json(dbMovies);
@@ -38,8 +39,8 @@ module.exports = function(app) {
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Movies.destroy({ where: { id: req.params.id } }).then(function(
+  app.delete("/api/movies/:id", function(req, res) {
+    db.movies.destroy({ where: { id: req.params.id } }).then(function(
       dbMovies
     ) {
       res.json(dbMovies);
