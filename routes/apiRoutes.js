@@ -10,15 +10,19 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/movies", function(req, res) {
-    db.movies.create({
-      movie_name: req.body.movie_name,
-      genre: req.body.genre,
-      year: req.body.year,
-      userRanking: req.body.user_ranking,
-      userID: req.body.userID
-    }).then(function(dbMovies) {
-      res.json(dbMovies);
-    });
+    console.log("add new movies test!!!!!!!");
+    console.log(req.body);
+    db.movies
+      .create({
+        movie_name: req.body.movie_name,
+        genre: req.body.genre,
+        year: req.body.year,
+        userRanking: req.body.user_ranking,
+        userID: req.body.userID
+      })
+      .then(function(dbMovies) {
+        res.json(dbMovies);
+      });
   });
 
   // Update an example

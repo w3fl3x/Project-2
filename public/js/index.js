@@ -46,14 +46,16 @@ var handleFormSubmit = function(event) {
     year: year.val().trim()
   };
   console.log(movie);
-  
-  if ((!movie_name) || (!genre) || (!year)) {
-    alert("You forgot to enter one of the following fields: title, genre or year!");
+
+  if (!movie_name || !genre || !year) {
+    alert(
+      "You forgot to enter one of the following fields: title, genre or year!"
+    );
   } else {
     API.saveMovie(movie).then(function() {
       window.location.href = "/";
     });
-  };
+  }
 
   movie_name.val("");
   genre.val("");
