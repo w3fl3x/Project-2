@@ -6,7 +6,6 @@
 </div>
 
 <div class="row">
-  {{!-- <div class="col-md-2"></div> --}}
 
   <div class="col-md-5 text-center">
     <div class="form-check form-check-inline">
@@ -18,44 +17,47 @@
       <label id="form-check-input" for="searchRadio2">Seen</label>
     </div>
 
-    <ol>
-    {{#each movie}}
-    {{#unless this.seen}}
-    <li>
-      <label>{{this.movie_name}}</label>
-      <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
-        <i class="fas fa-film"></i>
-      </button>
-      <button type="submit" class="btn btn-sm btn-link" id="delete-btn" value={{this.id}}>
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </li>
-    {{/unless}}
-    {{/each}}
-    </ol>
+    <div id="seenFalse">
+      <ol>
+      {{#each movie}}
+      {{#unless this.seen}}
+      <li>
+        <label>{{this.movie_name}}</label>
+        <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
+          <i class="fas fa-film"></i>
+        </button>
+        <button type="submit" class="btn btn-sm btn-link" id="delete-btn" value={{this.id}}>
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </li>
+      {{/unless}}
+      {{/each}}
+      </ol>
+    </div>
 
-     <ol>
-    {{#each movie}}
-    {{#if this.seen}}
-    <li>
-      <label>{{this.movie_name}}</label>
-      <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
-        <i class="fas fa-film"></i>
-      </button>
-      <button type="submit" class="btn btn-sm btn-link" id="delete-btn" value={{this.id}}>
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </li>
-    {{/if}}
-    {{/each}}
-    </ol>
+    <div id="seenTrue">
+      <ol>
+      {{#each movie}}
+      {{#if this.seen}}
+      <li>
+        <label>{{this.movie_name}}</label>
+        <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
+          <i class="fas fa-film"></i>
+        </button>
+        <button type="submit" class="btn btn-sm btn-link" id="delete-btn" value={{this.id}}>
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </li>
+      {{/if}}
+      {{/each}}
+      </ol>
+    </div>
   </div>
 
   <div class="col-md-7 text-center">
     //This is where the OMDB preview will be!
   </div>
 
-  {{!-- <div class="col-md-2"></div> --}}
 </div>
 
 <div class="row">
