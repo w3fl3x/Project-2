@@ -34,7 +34,7 @@ var API = {
     });
   },
   deleteMovie: function(Movies) {
-      return $.ajax({
+    return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
@@ -71,10 +71,6 @@ var handleFormSubmit = function(event) {
   year.val("");
 };
 
-var refreshPage = function () {
-  window.location.href = "/";
-};
-
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var updateBtnClick = function() {
@@ -90,7 +86,7 @@ var updateBtnClick = function() {
 // delete a specific movie from database when clicked on trash emblem
 var deleteBtnClick = function() {
   var deleteThis = $(this).attr("value");
-  console.log(deleteThis)
+  console.log(deleteThis);
 
   API.deleteMovie(deleteThis).then(function() {
     window.location.href = "/";
