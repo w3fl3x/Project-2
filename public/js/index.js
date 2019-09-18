@@ -32,6 +32,15 @@ var API = {
       type: "PUT",
       data: JSON.stringify(putData)
     });
+  },
+  deleteMovie: function(Movies) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "/api/movies/" + Movies,
+      type: "DELETE"
+    });
   }
 };
 
@@ -85,12 +94,22 @@ var toggleList2 = function() {
   $("#seenTrue").css("display", "block");
 };
 
-//click button to add movie to db
+// delete a specific movie from database when clicked on trash emblem
+var deleteBtnClick = function() {
+  var deleteThis = $(this).attr("value");
+  console.log(deleteThis);
+
+  API.deleteMovie(deleteThis).then(function() {
+    window.location.href = "/";
+  });
+};
+
+// Add event listeners to the submit and delete buttons
 addBtn.on("click", handleFormSubmit);
 //click button to toggle movie as seen
 $(document).on("click", "#seen-btn", updateBtnClick);
+
 //click button to toggle between lists
 $(document).on("click", "#searchRadio1", toggleList1);
 $(document).on("click", "#searchRadio2", toggleList2);
-
-
+$(document).on("click", "#delete-btn", deleteBtnClick);
