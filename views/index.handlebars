@@ -22,7 +22,7 @@
     {{#each movie}}
     {{#unless this.seen}}
     <li>
-      <label>{{this.movie_name}}</label>
+      <a class="movieinfo" href="#">{{this.movie_name}}</a>
       <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
         <i class="fas fa-film"></i>
       </button>
@@ -35,19 +35,8 @@
     </ol>
   </div>
 
-  <div class="col-md-7 text-center">
-    {{!-- <h2 id="ready-to-eat">Burger Heaven</h2> --}}
-    {{#each movie}}
-    {{#if this.watched}}
-    <form class="form-inline" action="/{{this.id}}?_method=PUT" method="POST">
-      <label id="watched-items">{{this.movie_name}}</label>
-      <input type="hidden" name="watched" value={{this.watched}}>
-      <button type="submit" class="btn btn-sm btn-link" id="delete-btn">
-        <i class="far fa-trash-alt"></i>
-      </button>
-    </form>
-    {{/if}}
-    {{/each}}
+  <div class="col-md-7 text-center omdb">
+   
   </div>
 
   {{!-- <div class="col-md-2"></div> --}}

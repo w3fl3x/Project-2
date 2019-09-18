@@ -77,3 +77,41 @@ var updateBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 addBtn.on("click", handleFormSubmit);
 $(document).on("click", "#seen-btn", updateBtnClick);
+$(document).on("click", ".movieinfo", function(){
+  //console.log("Hey I'm here!")
+  var omdbTitle=($(this).text())
+  var queryURL = "https://www.omdbapi.com/?t=" + $(this).text() + "&apikey=trilogy";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    var poster = response.Poster;
+    var p1 = $("<img>").attr("src", poster);
+    $('.omdb').append(p1);
+   
+    var rating = response.imdbRating;
+    var p2 = $('<p>').text('Rating: ' + rating);
+    $('.omdb').append(p2);
+   
+    var year = response.Released;
+    var p3 = $('<p>').text('Released: ' + year);
+    $('.omdb').append(p3);
+
+    var genre = response.Genre;
+    var p4 = $('<p>').text('Genre: ' + genre);
+    $('.omdb').append(p4);
+
+    var actors = response.Actors;
+    var p5 = $('<p>').text('Actors: ' + actors);
+    $('.omdb').append(p5);
+    
+    var plot = response.Plot;
+    var p6 =$('<p>').text('Plot: ' + plot);
+    $('.omdb').append(p6);
+    
+    
+
+    console.log(response);
+    
+  });
+});
