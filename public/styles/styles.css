@@ -5,3 +5,11 @@
 #delete-btn {
   color: red;
 }
+
+#seenFalse {
+  display: block;
+}
+
+#seenTrue {
+  display: none;
+}

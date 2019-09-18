@@ -32,6 +32,15 @@ var API = {
       type: "PUT",
       data: JSON.stringify(putData)
     });
+  },
+  deleteMovie: function(Movies) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      url: "/api/movies/" + Movies,
+      type: "DELETE"
+    });
   }
 };
 
@@ -74,44 +83,70 @@ var updateBtnClick = function() {
   });
 };
 
+//This function will toggle the list display
+var toggleList1 = function() {
+  $("#seenFalse").css("display", "block");
+  $("#seenTrue").css("display", "none");
+};
+
+var toggleList2 = function() {
+  $("#seenFalse").css("display", "none");
+  $("#seenTrue").css("display", "block");
+};
+
+// delete a specific movie from database when clicked on trash emblem
+var deleteBtnClick = function() {
+  var deleteThis = $(this).attr("value");
+  console.log(deleteThis);
+
+  API.deleteMovie(deleteThis).then(function() {
+    window.location.href = "/";
+  });
+};
+
 // Add event listeners to the submit and delete buttons
 addBtn.on("click", handleFormSubmit);
+//click button to toggle movie as seen
 $(document).on("click", "#seen-btn", updateBtnClick);
-$(document).on("click", ".movieinfo", function(){
+//click button to toggle between lists
+$(document).on("click", "#searchRadio1", toggleList1);
+$(document).on("click", "#searchRadio2", toggleList2);
+//Click Button to Delete
+$(document).on("click", "#delete-btn", deleteBtnClick);
+
+//Displaying Info After Button Click
+$(document).on("click", ".movieinfo", function() {
   //console.log("Hey I'm here!")
-  var omdbTitle=($(this).text())
-  var queryURL = "https://www.omdbapi.com/?t=" + $(this).text() + "&apikey=trilogy";
+  var omdbTitle = $(this).text();
+  var queryURL = "https://www.omdbapi.com/?t=" + omdbTitle + "&apikey=trilogy";
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
     var poster = response.Poster;
     var p1 = $("<img>").attr("src", poster);
-    $('.omdb').append(p1);
-   
+    $(".omdb").append(p1);
+
     var rating = response.imdbRating;
-    var p2 = $('<p>').text('Rating: ' + rating);
-    $('.omdb').append(p2);
-   
+    var p2 = $("<p>").text("Rating: " + rating);
+    $(".omdb").append(p2);
+
     var year = response.Released;
-    var p3 = $('<p>').text('Released: ' + year);
-    $('.omdb').append(p3);
+    var p3 = $("<p>").text("Released: " + year);
+    $(".omdb").append(p3);
 
     var genre = response.Genre;
-    var p4 = $('<p>').text('Genre: ' + genre);
-    $('.omdb').append(p4);
+    var p4 = $("<p>").text("Genre: " + genre);
+    $(".omdb").append(p4);
 
     var actors = response.Actors;
-    var p5 = $('<p>').text('Actors: ' + actors);
-    $('.omdb').append(p5);
-    
+    var p5 = $("<p>").text("Actors: " + actors);
+    $(".omdb").append(p5);
+
     var plot = response.Plot;
-    var p6 =$('<p>').text('Plot: ' + plot);
-    $('.omdb').append(p6);
-    
-    
+    var p6 = $("<p>").text("Plot: " + plot);
+    $(".omdb").append(p6);
 
     console.log(response);
-    
   });
 });
