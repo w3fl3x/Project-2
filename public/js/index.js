@@ -74,6 +74,23 @@ var updateBtnClick = function() {
   });
 };
 
-// Add event listeners to the submit and delete buttons
+//This function will toggle the list display
+var toggleList1 = function() {
+  $("#seenFalse").css("display", "block");
+  $("#seenTrue").css("display", "none");
+};
+
+var toggleList2 = function() {
+  $("#seenFalse").css("display", "none");
+  $("#seenTrue").css("display", "block");
+};
+
+//click button to add movie to db
 addBtn.on("click", handleFormSubmit);
+//click button to toggle movie as seen
 $(document).on("click", "#seen-btn", updateBtnClick);
+//click button to toggle between lists
+$(document).on("click", "#searchRadio1", toggleList1);
+$(document).on("click", "#searchRadio2", toggleList2);
+
+
