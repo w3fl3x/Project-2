@@ -22,7 +22,7 @@
       {{#each movie}}
       {{#unless this.seen}}
       <li>
-        <label>{{this.movie_name}}</label>
+        <a class="movieinfo" href="#">{{this.movie_name}}</a>
         <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
           <i class="fas fa-film"></i>
         </button>
@@ -40,7 +40,7 @@
       {{#each movie}}
       {{#if this.seen}}
       <li>
-        <label>{{this.movie_name}}</label>
+        <a class="movieinfo" href="#">{{this.movie_name}}</a>
         <button type="submit" class="btn btn-sm btn-link" id="seen-btn" value={{this.id}}>
           <i class="fas fa-film"></i>
         </button>
