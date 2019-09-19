@@ -123,7 +123,7 @@ $(document).on("click", ".movieinfo", function() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    var movieDiv = $('<div>');
+    var movieDiv = $("<div>");
     var poster = response.Poster;
     var p1 = $("<img>").attr("src", poster);
 
@@ -131,30 +131,30 @@ $(document).on("click", ".movieinfo", function() {
 
     var rating = response.imdbRating;
     var p2 = $("<p>").text("Rating: " + rating);
-    
+
     movieDiv.append(p2);
-    
+
     var year = response.Released;
     var p3 = $("<p>").text("Released: " + year);
-   
+
     movieDiv.append(p3);
-    
+
     var genre = response.Genre;
     var p4 = $("<p>").text("Genre: " + genre);
-    
+
     movieDiv.append(p4);
-    
+
     var actors = response.Actors;
     var p5 = $("<p>").text("Actors: " + actors);
-    
+
     movieDiv.append(p5);
-    
+
     var plot = response.Plot;
     var p6 = $("<p>").text("Plot: " + plot);
-    
+
     movieDiv.append(p6);
-    
-    $('.omdb').html(movieDiv);
+
+    $(".omdb").html(movieDiv);
 
     console.log(response);
   });
