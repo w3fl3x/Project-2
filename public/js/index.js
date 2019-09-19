@@ -56,13 +56,12 @@ var handleFormSubmit = function(event) {
   };
   console.log(movie);
   if (!movie_name || !genre || !year) {
-    
     alert(
       "You forgot to enter one of the following fields: title, genre or year!"
     );
   } else {
     console.log("else");
-    
+
     API.saveMovie(movie).then(function() {
       window.location.href = "/";
     });
