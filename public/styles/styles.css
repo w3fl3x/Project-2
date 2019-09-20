@@ -1,9 +1,47 @@
-.list-group-item {
-  line-height: 2.5;
+body {
+  background-image: url(../imgs/movie_strip_bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
-#delete-btn {
-  color: red;
+.jumbotron {
+  background: rgba(196, 196, 196, 0);
+  text-align: left;
+  margin-bottom: 0px;
+}
+
+.movieList {
+  background-color: rgba(5, 5, 5, 0.4);
+  border: 5px solid rgb(7, 7, 7);
+  border-radius: 1px;
+  display: inline-block;
+  padding: 0px;
+}
+
+#add-form {
+  padding: 0px;
+}
+
+a,
+li {
+  color: rgb(197, 197, 197);
+}
+
+.display-4 {
+  color: rgb(199, 73, 58);
+  font-family: "Anton", sans-serif;
+}
+
+.lead {
+  color: rgb(104, 151, 117);
+}
+
+.form-check {
+  color: rgb(104, 151, 117);
+  font-size: 20;
+  font-weight: bold;
 }
 
 #seenFalse {
@@ -12,4 +50,12 @@
 
 #seenTrue {
   display: none;
+}
+
+#seen-btn {
+  color: rgb(104, 151, 117);
+}
+
+#delete-btn {
+  color: rgb(199, 73, 58);
 }

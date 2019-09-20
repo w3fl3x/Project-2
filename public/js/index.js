@@ -115,7 +115,10 @@ $(document).on("click", "#searchRadio2", toggleList2);
 $(document).on("click", "#delete-btn", deleteBtnClick);
 
 //Displaying Info After Button Click
-$(document).on("click", ".movieinfo", function() {
+$(document).on("mouseover", ".movieinfo", displayOmdb);
+$(document).on("click", ".movieinfo", displayOmdb);
+
+var displayOmdb = function() {
   //console.log("Hey I'm here!")
   var omdbTitle = $(this).text();
   var queryURL = "https://www.omdbapi.com/?t=" + omdbTitle + "&apikey=trilogy";
@@ -149,4 +152,4 @@ $(document).on("click", ".movieinfo", function() {
 
     console.log(response);
   });
-});
+};
