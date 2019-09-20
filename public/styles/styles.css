@@ -14,7 +14,7 @@ body {
 
 .movieList {
   background-color: rgba(5, 5, 5, 0.4);
-  border: 5px solid rgb(7, 7, 7);
+  border: 5px solid rgb(14, 14, 14);
   border-radius: 1px;
   display: inline-block;
   padding: 0px;
@@ -56,10 +56,29 @@ li {
   color: rgb(104, 151, 117);
 }
 
+#addBtn {
+  background-color: rgb(199, 73, 58);
+  color: rgb(248, 248, 248);
+}
+
 #delete-btn {
   color: rgb(199, 73, 58);
 }
 
+.control-label {
+  color: rgb(199, 73, 58);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.inputMovie {
+  background-color: rgba(5, 5, 5, 0.4);
+  color: white;
+  border: 1px solid rgb(199, 73, 58);
+}
+
 .pInfo {
   color: white;
+  background-color: rgba(5, 5, 5, 0.4);
+  border: 5px solid rgb(14, 14, 14);
 }

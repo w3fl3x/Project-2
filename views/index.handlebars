@@ -62,10 +62,10 @@
     <form action="/add" method="POST">
       <div class="form-group">
         <label for="new-movie" class="control-label">Add to your watch list!</label>
-        <input class="form-control" type="text" id="title" name="name" value="" placeholder="Movie Name">
-        <input class="form-control" type="text" id="genre" name="genre" value="" placeholder="Genre">
-        <input class="form-control" type="text" id="year" name="year" value="" placeholder="Year">
-        <button type="submit" class="btn btn-success btn-block" id="addBtn">Add Movie</button>
+        <input class="form-control inputMovie" type="text" id="title" name="name" value="" placeholder="Movie Name">
+        <input class="form-control inputMovie" type="text" id="genre" name="genre" value="" placeholder="Genre">
+        <input class="form-control inputMovie" type="text" id="year" name="year" value="" placeholder="Year">
+        <button type="submit" class="btn btn-block" id="addBtn">Add Movie</button>
       </div>
     </form>
     {{#if alert}}
