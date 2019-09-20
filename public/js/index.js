@@ -137,6 +137,7 @@ var displayOmdb = function(movie) {
     var poster = response.Poster;
     var p1 = $("<img>").attr("src", poster);
 
+    movieDiv.attr("class", "pInfo");
     movieDiv.append(p1);
 
     var rating = response.imdbRating;
