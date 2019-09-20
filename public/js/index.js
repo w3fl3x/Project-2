@@ -116,13 +116,19 @@ $(document).on("click", "#searchRadio2", toggleList2);
 $(document).on("click", "#delete-btn", deleteBtnClick);
 
 //Displaying Info After Button Click
-$(document).on("mouseover", ".movieinfo", displayOmdb);
-$(document).on("click", ".movieinfo", displayOmdb);
-
-var displayOmdb = function() {
-  //console.log("Hey I'm here!")
+$(document).on("mouseover", ".movieInfo", function() {
   var omdbTitle = $(this).text();
-  var queryURL = "https://www.omdbapi.com/?t=" + omdbTitle + "&apikey=trilogy";
+  displayOmdb(omdbTitle);
+});
+
+$(document).on("click", ".movieInfo", function() {
+  var omdbTitle = $(this).text();
+  displayOmdb(omdbTitle);
+});
+
+var displayOmdb = function(movie) {
+  //console.log("Hey I'm here!")
+  var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
   $.ajax({
     url: queryURL,
     method: "GET"
