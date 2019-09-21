@@ -21,6 +21,11 @@ li {
   color: rgb(197, 197, 197);
 }
 
+ol,
+li {
+  list-style-type: none;
+}
+
 .display-4 {
   color: rgb(199, 73, 58);
   font-family: 'Ultra', serif;
