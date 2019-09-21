@@ -17,10 +17,29 @@
 
   <script src="https://use.fontawesome.com/releases/v5.10.1/js/all.js" data-auto-replace-svg="nest"></script>
   
+  <script src="https://use.typekit.net/nlq1kdt.js"></script>
+
 </head>
 
-<body class="container">
-  {{{body}}}
+<body>
+
+  <div class="bideo">
+  <video id="background_video" loop muted>
+    <source src="../../public/imgs/film_027___4K_res.mp4" type="video/mp4">
+  </video>
+    <div id="video_cover"></div>
+    <div id="overlay"></div>
+
+    <div id="video_controls">
+      <span id="play">
+        <img src="../../public/imgs/film_027___4K_res.mp4">
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    {{{body}}}
+  </div>
 </body>
 
 </html>
