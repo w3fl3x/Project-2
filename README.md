@@ -32,3 +32,9 @@ SceneIT
 * `HTML`
 * `CSS`
 * `Travis Cl`
+
+## Team Members
+
+* Allan Angeles - https://github.com/AllanAngeles96
+* Sang Huynh - https://github.com/huynhts
+* Huy Nguyen - https://github.com/w3fl3x
